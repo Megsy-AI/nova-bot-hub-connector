@@ -185,7 +185,7 @@ const WarPage = () => {
   // Realtime: characters
   useEffect(() => {
     const channel = supabase.channel('war-characters-global')
-      .on("postgres_changes", { event: "UPDATE", schema: "public", table: "characters" }, (payload) => {
+      .on("postgres_changes", { event: "UPDATE", schema: "public", table: "characters" }, (payload: any) => {
         const updated = payload.new as Character;
         if (updated.is_active && (!character || character.id !== updated.id)) {
           setCharacter(updated); setContributors(new Map()); return;
@@ -210,7 +210,7 @@ const WarPage = () => {
       .on("postgres_changes", {
         event: "INSERT", schema: "public", table: "attacks",
         filter: `character_id=eq.${character.id}`,
-      }, async (payload) => {
+      }, async (payload: any) => {
         const attack = payload.new as { id: string; user_id: string; damage: number; metadata: { ton_reward?: number } };
         const profile = await fetchPublicProfiles([attack.user_id]);
         const p = profile?.[0];

@@ -81,7 +81,7 @@ const TasksPage = () => {
   const loadCompletedTasks = async () => {
     if (!user.profileId) return;
     const { data } = await supabase.from("user_tasks").select("task_id").eq("user_id", user.profileId);
-    if (data) setCompletedTaskIds(data.map((t) => t.task_id));
+    if (data) setCompletedTaskIds(data.map((t: any) => t.task_id));
   };
 
   const loadReferralSummary = async () => {
