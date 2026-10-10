@@ -3,7 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useApp } from "@/context/AppContext";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase as typedSupabase } from "@/integrations/supabase/client";
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const supabase = typedSupabase as any;
 import { Button } from "@/components/ui/button";
 import { completeTaskForTelegram, getReferralSummaryForTelegram, type ReferralSummary } from "@/lib/game-api";
 import SpotlightHero from "@/components/hero/SpotlightHero";

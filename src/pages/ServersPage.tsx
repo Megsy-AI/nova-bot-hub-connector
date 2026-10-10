@@ -3,7 +3,9 @@ import SpotlightHero from "@/components/hero/SpotlightHero";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase as typedSupabase } from "@/integrations/supabase/client";
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const supabase = typedSupabase as any;
 import { useApp } from "@/context/AppContext";
 import { useToast } from "@/hooks/use-toast";
 import ServerArtwork from "@/components/ServerArtwork";

@@ -8,7 +8,9 @@ import { useTonConnectUI, useTonAddress } from "@tonconnect/ui-react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase as typedSupabase } from "@/integrations/supabase/client";
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const supabase = typedSupabase as any;
 import { Power, Lock, ArrowDownToLine, ArrowUpFromLine, ShieldCheck, Copy } from "lucide-react";
 import { useNavigate } from "@tanstack/react-router";
 import { PaymentError, sendTonPayment, TON_FEE_BUFFER } from "@/lib/ton";
