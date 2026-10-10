@@ -65,7 +65,7 @@ const WalletPage = () => {
       ]);
       setIsVerified(Boolean(verified));
       setHasServer(!!srvRes.data && srvRes.data.length > 0);
-      setAttacksBought((invRes.data ?? []).setAttacksBought((invRes.data ?? []).reduce((s: number, r: any) => s + (r.total_purchased ?? 0), 0)); => s + (r.total_purchased ?? 0), 0));
+      setAttacksBought((invRes.data ?? []).reduce((s: number, r: any) => s + (r.total_purchased ?? 0), 0));
       setHasKill(!!killRes.data && killRes.data.length > 0);
       setHasNft(((nftRes.data ?? []).length + (ownNftRes.data ?? []).length) > 0);
       setHasRequiredDeposit((depositRes.data ?? []).length > 0);
